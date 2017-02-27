@@ -13,3 +13,4 @@ export MiniInfoBar from './MiniInfoBar/MiniInfoBar';
 export SurveyForm from './SurveyForm/SurveyForm';
 export WidgetForm from './WidgetForm/WidgetForm';
 export ChangePassword from './ChangePassword/ChangePassword';
+export EmailBox from './EmailBox/EmailBox';

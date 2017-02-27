@@ -2,7 +2,7 @@ import React, {Component, PropTypes} from 'react';
 import {connect} from 'react-redux';
 import Helmet from 'react-helmet';
 import * as authActions from 'redux/modules/auth';
-import { OauthBox } from 'components';
+import { OauthBox, EmailBox } from 'components';
 import ApiClient from 'helpers/ApiClient.js';
 
 @connect(
@@ -17,10 +17,10 @@ export default class Login extends Component {
   }
 
   handleSubmit = (event) => {
-    event.preventDefault();
-    const input = this.refs.username;
-    this.props.login(input.value);
-    input.value = '';
+    // event.preventDefault();
+    // const input = this.refs.username;
+    // this.props.login(input.value);
+    // input.value = '';
   }
 
   handleMessage = (popup) => {
@@ -60,16 +60,7 @@ export default class Login extends Component {
         {!user &&
         <div>
           <OauthBox oauthRef="facebook" handleClick={this.handleOauthLogin('facebook')}/>
-          <OauthBox oauthRef="facebook" handleClick={this.handleOauthLogin('facebook')}/>
-          <OauthBox oauthRef="facebook" handleClick={this.handleOauthLogin('facebook')}/>
-          <form className="login-form form-inline" onSubmit={this.handleSubmit}>
-            <div className="form-group">
-              <input type="text" ref="username" placeholder="Enter a username" className="form-control"/>
-            </div>
-            <button className="btn btn-success" onClick={this.handleSubmit}><i className="fa fa-sign-in"/>{' '}Log In
-            </button>
-          </form>
-          <p>This will "log you in" as this user, storing the username in the session of the API server.</p>
+          <EmailBox handleSubmit={this.handleSubmit} />
         </div>
         }
         {user &&
